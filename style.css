@@ -92,6 +92,10 @@ body {
   transform: translateY(-2px);
 }
 
+.phone-icon {
+  font-size: 1rem;
+}
+
 /* Mobile Menu Toggle */
 .mobile-menu-toggle {
   display: none;
