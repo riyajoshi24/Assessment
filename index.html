@@ -4,113 +4,310 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
-  <title>Clove Dental</title>
-  <script src="index.js"></script>
+  <title>Clove Dental - Expert Dental Care in Delhi</title>
 </head>
-<body >
-  <header>
-    <div class="box1">
-      <h1>Clove <span>:)</h1>
-      <h2>DENTAL</h2>
-      <button class="btn1" onclick="myfunction()"> Book Appointment </button>
-      <button class="btn2">985-6589-510</button>
-    </div>
+<body>
+  <!-- Header Section -->
+  <header class="header">
+    <nav class="navbar">
+      <div class="nav-brand">
+        <h1>Clove <span class="smile">:)</span></h1>
+        <h2>DENTAL</h2>
+      </div>
+      
+      <!-- Mobile Menu Toggle -->
+      <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      
+      <div class="nav-buttons">
+        <button class="btn-primary" onclick="scrollToForm()">Book Appointment</button>
+        <button class="btn-secondary">
+          <span class="phone-icon">📞</span>
+          985-6589-510
+        </button>
+      </div>
+    </nav>
   </header>
-  <div class="container">
-    <div class="box2"></div>
-    <div class="box3">
-      <p><b>Get Expert Dental Guidence In Delhi</b><br>
-      <span>Book your free consultation today and take the first step toward healthy, beautiful teeth.
-    <div class="form">
-  <form >
-    <label for="fname"></label>
-    <input type="text" id="name" name="Name" placeholder="Name">
 
-    <label for="Phone_number"></label>
-    <input type="text" id="phone_number" name="Phone_number" placeholder="Mobile Number">
-
-    <label for=Captcha></label>
-    <input type="text" id="captcha" name="captcha" placeholder="Enter Captcha">
-    <label class="container1" ></label><input type="checkbox" />I agree to CLOVE Dental’s <u>Terms</u> and <u>Privacy Policy</u> and consent to contact via phone, email, or SMS.
-    <input type="submit" id="submit" value="Book a Free Consultation">
-  </form>
-</div>
-    </p>
-    </div>
-    </div>
-    <div class="box4">
-    <img src="img4.png">
-    </div>
-    <div class="box5">
-      <h3>Types Of Root Canal Treatment</h3>
-      <h4>In the root canal, the dentist removes infected pulp, cleans the tooth and fill it with special material.</h4>
-      
-      <div class="box6">
-      <div>
-        <img src="img5.png"></div>
-        <div class="para"><p style="text-align:left; margin-top: 9%;"><b>ROOT CANAL TREATMENT</b><br></p>
-          <p style="text-align:left;">Ideal for infected and damaged tooth<br></p>
-      <p style="text-align:left; font-weight: bold;" >Types of RCT</p>
-    <ul>
-      <li><span style="margin: -7%;">Root Canal Treatment</span></li>
-      <li><span style="margin: -7%;">RCT</span></li>
-      <li><span style="margin: -7%;">Split RCT with rubber dam</span></li>
-      <li><span style="margin: -7%;">Split RCT with laser</span></li>
-    </ul>
-    <p style="color: #E9811F; font-size: larger;font-weight: bold;">Starting Price<br>
-    <span style="font-size: larger;font-weight: bold;color: black;margin-left: 11%;">₹ 19,999</span></p><br>
-     <form><input type="submit" id="submit1" value="Get Free Consultation"></form>
+  <!-- Hero Section -->
+  <main>
+    <section class="hero-section">
+      <div class="hero-image">
+        <img src="/placeholder.svg?height=450&width=1032" alt="Dental clinic interior" />
       </div>
-      
-    </div>
-      
-    <div class="box7" >
-      <div>
-        <img src="img6.png"></div>
-        <div class="para"><p style="text-align:left;margin-top: 9%;"><b>Re-ROOT CANAL TREATMENT</b><br></p>
-          <p style="text-align:left;;">Ideal issues that persit or recur after an initial root canal treatment.<br></p>
-      <p style="text-align:left; font-weight: bold;" >Types of RCT</p>
-    <ul>
-      <li><span style="margin: -7%;">Re-RCT with rubber dam</span></li>
-      <li><span style="margin: -7%;">Re-RCT laser specialist </span></li>
-      <li><span style="margin: -7%;">e-RCT with retrieval of old RCT filling</span></li>
-    </ul>
-    <p style="color: #E9811F; font-size: larger;font-weight: bold;">Starting Price<br>
-    <span style="font-size: larger;font-weight: bold;color: black;margin-left: 11%;">₹ 19,999</span></p><br>
-     <form><input type="submit" id="submit1" value="Get Free Consultation"></form>
+      <div class="hero-content">
+        <div class="consultation-card">
+          <h2><strong>Get Expert Dental Guidance In Delhi</strong></h2>
+          <p>Book your free consultation today and take the first step toward healthy, beautiful teeth.</p>
+          
+          <form class="consultation-form" onsubmit="handleFormSubmit(event)">
+            <div class="form-group">
+              <input type="text" id="name" name="name" placeholder="Name" required aria-label="Your name">
+            </div>
+            
+            <div class="form-group">
+              <input type="tel" id="phone" name="phone" placeholder="Mobile Number" required aria-label="Your mobile number">
+            </div>
+            
+            <div class="form-group">
+              <input type="text" id="captcha" name="captcha" placeholder="Enter Captcha: 5 + 3 = ?" required aria-label="Captcha verification">
+            </div>
+            
+            <div class="checkbox-group">
+              <label class="checkbox-label">
+                <input type="checkbox" required>
+                <span class="checkmark"></span>
+                I agree to CLOVE Dental's <a href="#terms">Terms</a> and <a href="#privacy">Privacy Policy</a> and consent to contact via phone, email, or SMS.
+              </label>
+            </div>
+            
+            <button type="submit" class="btn-submit">Book a Free Consultation</button>
+          </form>
+        </div>
       </div>
-      
-    </div>
-    
-    <div style="padding-top: 5%;" >
-      <p style="text-align: center;font-size: 200%;font-weight: bolder;margin-top: 3%;">Real Smile, Real Transformation</p>
-      <p style="text-align: center;font-size: large; margin-top: 1%; ">See the life-changing results our dental implant patients enjoy</p>
-    <section class="box8">
-      <div><img src="img7.png" style="width: 285px;height: 200px; border-radius: 20px;margin-left: 2.9%; ">
-      <figcaption style="margin-left: 5%;">Arjun mehta<span style="color: #E9811F; margin-left: 45%;">Mumbai</span></figcaption ></div>
-      <div><img src="img8.png" style="width: 285px;height: 200px; border-radius: 20px ">
-      <figcaption style="margin-left: 5%;">Kavita<span style="color: #E9811F; margin-left: 50%;">Bangalore</span></figcaption> </div>
-      <div><img src="img10.png" style="width: 285px;height: 200px; border-radius: 20px; ">
-      <figcaption style="margin-left: 5%;">Neha Joshi<span style="color: #E9811F; margin-left: 49%;">Delhi</span></figcaption></div>
-      <div><img src="img9.png" style="width: 285px;height: 200px; border-radius: 20px;">
-      <figcaption style="margin-left: 5%;">Viram Desai<span style="color: #E9811F; margin-left: 45%;">Chennai</span></figcaption></div>
     </section>
-    </div>
-    </div>
-    <footer class="footer">
-      <div class="box9">
-      <h1>Clove <span>:)</h1>
-      <h2>DENTAL</h2>
+
+    <!-- Services Banner -->
+    <section class="services-banner">
+      <img src="/placeholder.svg?height=200&width=1335" alt="Dental services overview" />
+    </section>
+
+    <!-- Root Canal Treatments -->
+    <section class="treatments-section">
+      <div class="section-header">
+        <h2>Types Of Root Canal Treatment</h2>
+        <p>In the root canal, the dentist removes infected pulp, cleans the tooth and fills it with special material.</p>
       </div>
-      <nav class="nav">
-        <ul class="nav-list">
-          <li><a href="#privacy" id="fanchor"></a> Privacy Policy</li>
-          <li><a href="#terms"></a> Terms of service</li>
-          <li><a href="#acessibility"></a>Acessibility</li>
+
+      <div class="treatments-grid">
+        <!-- Root Canal Treatment Card -->
+        <article class="treatment-card">
+          <div class="treatment-image">
+            <img src="/placeholder.svg?height=333&width=320" alt="Root Canal Treatment procedure" />
+          </div>
+          <div class="treatment-content">
+            <h3>ROOT CANAL TREATMENT</h3>
+            <p>Ideal for infected and damaged tooth</p>
+            
+            <h4>Types of RCT</h4>
+            <ul>
+              <li>Root Canal Treatment</li>
+              <li>RCT</li>
+              <li>Split RCT with rubber dam</li>
+              <li>Split RCT with laser</li>
+            </ul>
+            
+            <div class="price">
+              <span class="price-label">Starting Price</span>
+              <span class="price-amount">₹ 19,999</span>
+            </div>
+            
+            <button class="btn-consultation" onclick="scrollToForm()">Get Free Consultation</button>
+          </div>
+        </article>
+
+        <!-- Re-Root Canal Treatment Card -->
+        <article class="treatment-card">
+          <div class="treatment-image">
+            <img src="/placeholder.svg?height=333&width=320" alt="Re-Root Canal Treatment procedure" />
+          </div>
+          <div class="treatment-content">
+            <h3>Re-ROOT CANAL TREATMENT</h3>
+            <p>Ideal for issues that persist or recur after an initial root canal treatment.</p>
+            
+            <h4>Types of RCT</h4>
+            <ul>
+              <li>Re-RCT with rubber dam</li>
+              <li>Re-RCT laser specialist</li>
+              <li>Re-RCT with retrieval of old RCT filling</li>
+            </ul>
+            
+            <div class="price">
+              <span class="price-label">Starting Price</span>
+              <span class="price-amount">₹ 19,999</span>
+            </div>
+            
+            <button class="btn-consultation" onclick="scrollToForm()">Get Free Consultation</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+      <div class="section-header">
+        <h2>Real Smile, Real Transformation</h2>
+        <p>See the life-changing results our dental implant patients enjoy</p>
+      </div>
+
+      <div class="testimonials-grid">
+        <figure class="testimonial-card">
+          <img src="/placeholder.svg?height=200&width=285" alt="Before and after dental treatment for Arjun Mehta" />
+          <figcaption>
+            <span class="patient-name">Arjun Mehta</span>
+            <span class="patient-location">Mumbai</span>
+          </figcaption>
+        </figure>
+
+        <figure class="testimonial-card">
+          <img src="/placeholder.svg?height=200&width=285" alt="Before and after dental treatment for Kavita" />
+          <figcaption>
+            <span class="patient-name">Kavita</span>
+            <span class="patient-location">Bangalore</span>
+          </figcaption>
+        </figure>
+
+        <figure class="testimonial-card">
+          <img src="/placeholder.svg?height=200&width=285" alt="Before and after dental treatment for Neha Joshi" />
+          <figcaption>
+            <span class="patient-name">Neha Joshi</span>
+            <span class="patient-location">Delhi</span>
+          </figcaption>
+        </figure>
+
+        <figure class="testimonial-card">
+          <img src="/placeholder.svg?height=200&width=285" alt="Before and after dental treatment for Viram Desai" />
+          <figcaption>
+            <span class="patient-name">Viram Desai</span>
+            <span class="patient-location">Chennai</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Additional Booking Section -->
+    <section class="booking-section">
+      <div class="booking-container">
+        <h2>Book an Appointment With Clove Dentist in Delhi</h2>
+        <form class="booking-form" onsubmit="handleBookingSubmit(event)">
+          <div class="booking-form-row">
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="tel" name="phone" placeholder="Phone" required>
+            <div class="captcha-group">
+              <input type="text" name="captcha" placeholder="Captcha" required>
+              <span class="captcha-code">1514</span>
+            </div>
+          </div>
+          <div class="booking-terms">
+            <label class="booking-checkbox-label">
+              <input type="checkbox" required>
+              I agree to CLOVE Dental's <a href="#terms">Terms</a> and <a href="#privacy">Privacy Policy</a> and consent to contact via phone, email, or SMS.
+            </label>
+          </div>
+          <button type="submit" class="btn-book-consultation">Book Free Consultation</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+      <div class="faq-container">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-grid">
+          <div class="faq-column">
+            <div class="faq-item">
+              <button class="faq-question" onclick="toggleFAQ(this)">
+                <span>Can i choose the dentist on my own for treatment ?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>Yes, you can choose your preferred dentist based on their specialization and availability. Our team will help you select the best dentist for your specific treatment needs.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" onclick="toggleFAQ(this)">
+                <span>Will i get the same doctor each time i visit the same clinic ?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>We strive to maintain continuity of care by assigning the same dentist for your ongoing treatments. However, in case of unavailability, we ensure seamless handover to another qualified dentist.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" onclick="toggleFAQ(this)">
+                <span>How you are able to provide less prices than other dental brands ?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>We maintain competitive pricing through efficient operations, bulk procurement of materials, and our commitment to making quality dental care accessible to everyone without compromising on treatment standards.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" onclick="toggleFAQ(this)">
+                <span>How you are able to provide less prices than other dental brands ?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>Our cost-effective approach includes streamlined processes, advanced technology, and strategic partnerships that allow us to offer premium dental services at affordable rates.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-column">
+            <div class="faq-item">
+              <button class="faq-question" onclick="toggleFAQ(this)">
+                <span>What are your dental clinic timings?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>Our clinics are open Monday to Sunday from 10:00 AM to 9:00 PM. We also offer emergency services and extended hours for urgent dental care needs.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" onclick="toggleFAQ(this)">
+                <span>How can I book an appointment?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>You can book an appointment by calling us at 985-6589-510, filling out our online form, or visiting our clinic directly. We also offer same-day appointments based on availability.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" onclick="toggleFAQ(this)">
+                <span>How frequently should I visit a dentist?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>We recommend visiting a dentist every 6 months for routine check-ups and cleanings. However, the frequency may vary based on your oral health condition and dentist's recommendation.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <h1>Clove <span class="smile">:)</span></h1>
+        <h2>DENTAL</h2>
+      </div>
+      
+      <nav class="footer-nav">
+        <ul class="footer-nav-list">
+          <li><a href="#privacy">Privacy Policy</a></li>
+          <li><a href="#terms">Terms of Service</a></li>
+          <li><a href="#accessibility">Accessibility</a></li>
         </ul>
       </nav>
+    </div>
+  </footer>
 
-    </footer>
+  <!-- Back to Top Button -->
+  <button class="back-to-top" onclick="scrollToTop()" aria-label="Back to top">
+    ↑
+  </button>
 
+  <script src="script.js"></script>
 </body>
 </html>
