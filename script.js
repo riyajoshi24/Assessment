@@ -1,11 +1,10 @@
-// DOM Content Loaded
+
 document.addEventListener("DOMContentLoaded", () => {
   initializeAnimations();
   initializeScrollEffects();
   initializeFormValidation();
 });
 
-// Mobile Menu Toggle
 function toggleMobileMenu() {
   const navButtons = document.querySelector(".nav-buttons");
   const menuToggle = document.querySelector(".mobile-menu-toggle");
@@ -14,7 +13,6 @@ function toggleMobileMenu() {
   menuToggle.classList.toggle("active");
 }
 
-// Smooth scroll to form
 function scrollToForm() {
   const form = document.querySelector(".consultation-form");
   if (form) {
@@ -23,7 +21,7 @@ function scrollToForm() {
       block: "center",
     });
 
-    // Focus on first input after scroll
+  
     setTimeout(() => {
       const firstInput = form.querySelector('input[type="text"]');
       if (firstInput) {
@@ -33,7 +31,6 @@ function scrollToForm() {
   }
 }
 
-// Scroll to top
 function scrollToTop() {
   window.scrollTo({
     top: 0,
@@ -41,52 +38,48 @@ function scrollToTop() {
   });
 }
 
-// Form submission handler
 function handleFormSubmit(event) {
   event.preventDefault();
 
   const form = event.target;
   const formData = new FormData(form);
 
-  // Get form values
   const name = formData.get("name").trim();
   const phone = formData.get("phone").trim();
   const captcha = formData.get("captcha").trim();
 
-  // Validate form
+
   if (!validateForm(name, phone, captcha)) {
     return;
   }
 
-  // Show loading state
+
   const submitBtn = form.querySelector(".btn-submit");
   const originalText = submitBtn.textContent;
   submitBtn.textContent = "Booking...";
   submitBtn.disabled = true;
 
-  // Simulate API call
+
   setTimeout(() => {
-    // Show success message
+    
     showNotification(
       "Success! Your appointment request has been submitted. We will contact you soon.",
       "success"
     );
 
-    // Reset form
+   
     form.reset();
 
-    // Reset button
+
     submitBtn.textContent = originalText;
     submitBtn.disabled = false;
 
-    // Track conversion (you can replace this with actual analytics)
     console.log("Appointment booked:", { name, phone });
   }, 2000);
 }
 
 // Form validation
 function validateForm(name, phone, captcha) {
-  // Name validation
   if (name.length < 2) {
     showNotification(
       "Please enter a valid name (at least 2 characters)",
@@ -95,14 +88,12 @@ function validateForm(name, phone, captcha) {
     return false;
   }
 
-  // Phone validation
   const phoneRegex = /^[6-9]\d{9}$/;
   if (!phoneRegex.test(phone.replace(/\D/g, ""))) {
     showNotification("Please enter a valid 10-digit mobile number", "error");
     return false;
   }
 
-  // Captcha validation
   if (captcha !== "8") {
     showNotification("Incorrect captcha. The answer is 8 (5 + 3 = 8)", "error");
     return false;
@@ -111,15 +102,14 @@ function validateForm(name, phone, captcha) {
   return true;
 }
 
-// Show notification
 function showNotification(message, type = "info") {
-  // Remove existing notifications
+
   const existingNotification = document.querySelector(".notification");
   if (existingNotification) {
     existingNotification.remove();
   }
 
-  // Create notification element
+
   const notification = document.createElement("div");
   notification.className = `notification notification-${type}`;
   notification.innerHTML = `
@@ -129,7 +119,6 @@ function showNotification(message, type = "info") {
         </div>
     `;
 
-  // Add styles
   notification.style.cssText = `
         position: fixed;
         top: 20px;
@@ -167,10 +156,9 @@ function showNotification(message, type = "info") {
         line-height: 1;
     `;
 
-  // Add to page
   document.body.appendChild(notification);
 
-  // Auto remove after 5 seconds
+ 
   setTimeout(() => {
     if (notification.parentElement) {
       notification.style.animation = "slideOutRight 0.3s ease";
@@ -179,9 +167,9 @@ function showNotification(message, type = "info") {
   }, 5000);
 }
 
-// Initialize scroll animations
+
 function initializeAnimations() {
-  // Add animation classes to elements
+
   const treatmentCards = document.querySelectorAll(".treatment-card");
   const testimonialCards = document.querySelectorAll(".testimonial-card");
 
@@ -199,12 +187,11 @@ function initializeAnimations() {
   });
 }
 
-// Initialize scroll effects
 function initializeScrollEffects() {
-  // Back to top button
+
   const backToTopBtn = document.querySelector(".back-to-top");
 
-  // Intersection Observer for animations
+
   const observerOptions = {
     threshold: 0.1,
     rootMargin: "0px 0px -50px 0px",
@@ -218,14 +205,12 @@ function initializeScrollEffects() {
     });
   }, observerOptions);
 
-  // Observe animated elements
   document
     .querySelectorAll(".fade-in, .slide-in-left, .slide-in-right")
     .forEach((el) => {
       observer.observe(el);
     });
 
-  // Scroll event for back to top button
   window.addEventListener("scroll", () => {
     if (window.pageYOffset > 300) {
       backToTopBtn.classList.add("visible");
@@ -235,25 +220,24 @@ function initializeScrollEffects() {
   });
 }
 
-// Initialize form validation
+
 function initializeFormValidation() {
   const form = document.querySelector(".consultation-form");
   const inputs = form.querySelectorAll('input[type="text"], input[type="tel"]');
 
   inputs.forEach((input) => {
-    // Real-time validation feedback
+  
     input.addEventListener("blur", function () {
       validateInput(this);
     });
 
     input.addEventListener("input", function () {
-      // Remove error styling on input
+
       this.style.borderColor = "";
     });
   });
 }
 
-// Validate individual input
 function validateInput(input) {
   const value = input.value.trim();
   let isValid = true;
@@ -292,7 +276,7 @@ function validateInput(input) {
   return isValid;
 }
 
-// Add CSS animations
+
 const style = document.createElement("style");
 style.textContent = `
     @keyframes slideInRight {
@@ -319,7 +303,6 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Handle window resize
 window.addEventListener("resize", () => {
   const navButtons = document.querySelector(".nav-buttons");
   const menuToggle = document.querySelector(".mobile-menu-toggle");
@@ -330,57 +313,51 @@ window.addEventListener("resize", () => {
   }
 });
 
-// Prevent form resubmission on page refresh
 if (window.history.replaceState) {
   window.history.replaceState(null, null, window.location.href);
 }
 
-// Handle booking form submission
 function handleBookingSubmit(event) {
   event.preventDefault();
 
   const form = event.target;
   const formData = new FormData(form);
 
-  // Get form values
+
   const name = formData.get("name").trim();
   const phone = formData.get("phone").trim();
   const captcha = formData.get("captcha").trim();
 
-  // Validate booking form
   if (!validateBookingForm(name, phone, captcha)) {
     return;
   }
 
-  // Show loading state
   const submitBtn = form.querySelector(".btn-book-consultation");
   const originalText = submitBtn.textContent;
   submitBtn.textContent = "Booking...";
   submitBtn.disabled = true;
 
-  // Simulate API call
+
   setTimeout(() => {
-    // Show success message
     showNotification(
       "Success! Your appointment has been booked. We will contact you shortly to confirm the details.",
       "success"
     );
 
-    // Reset form
     form.reset();
 
-    // Reset button
+
     submitBtn.textContent = originalText;
     submitBtn.disabled = false;
 
-    // Track conversion
+
     console.log("Booking submitted:", { name, phone });
   }, 2000);
 }
 
 // Validate booking form
 function validateBookingForm(name, phone, captcha) {
-  // Name validation
+
   if (name.length < 2) {
     showNotification(
       "Please enter a valid name (at least 2 characters)",
@@ -429,8 +406,7 @@ function toggleFAQ(button) {
   } else {
     faqItem.classList.add("active");
   }
-
-  // Add smooth scroll if item is opening and not fully visible
+// Smooth scroll
   if (!isActive) {
     setTimeout(() => {
       const rect = faqItem.getBoundingClientRect();
